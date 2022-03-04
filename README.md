@@ -22,7 +22,29 @@ migrate create -ext sql -dir db/migration -seq init_schema
 migrate -path db/migration -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
 ```
 
+## SQLC
+
+Install
+```shell
+go install github.com/kyleconroy/sqlc/cmd/sqlc@latest
+sudo snap install sqlc
+
+sqlc version
+sqlc help
+
+sqlc init
+make sqlc
+```
+
+```shell
+go mod init github.com/andrelsf/go-restapi
+go mod tidy
+```
+
 ## References
 
 - [Simple Bank](https://github.com/techschool/simplebank)
 - [Migrate](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate)
+- [SQLC](https://sqlc.dev/)
+- [Github SQLC](https://github.com/kyleconroy/sqlc)
+- 
