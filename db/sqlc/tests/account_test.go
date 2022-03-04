@@ -1,4 +1,4 @@
-package db
+package tests
 
 import (
 	"context"
@@ -6,12 +6,13 @@ import (
 	"testing"
 	"time"
 
+	db "github.com/andrelsf/go-restapi/db/sqlc"
 	"github.com/andrelsf/go-restapi/util"
 	"github.com/stretchr/testify/require"
 )
 
-func createRandomAccount(t *testing.T) Account {
-	params := CreateAccountParams{
+func createRandomAccount(t *testing.T) db.Account {
+	params := db.CreateAccountParams{
 		Owner:    util.RandomOwner(),
 		Balance:  util.RandomMoney(),
 		Currency: util.RandomCurrency(),
@@ -54,7 +55,7 @@ func TestGetAccount(t *testing.T) {
 func TestUpdateAccount(t *testing.T) {
 	accountSaved := createRandomAccount(t)
 
-	args := UpdateAccountParams{
+	args := db.UpdateAccountParams{
 		ID:      accountSaved.ID,
 		Balance: util.RandomMoney(),
 	}
@@ -88,7 +89,7 @@ func TestListAccounts(t *testing.T) {
 		createRandomAccount(t)
 	}
 
-	params := ListAccountsParams{
+	params := db.ListAccountsParams{
 		Limit:  5,
 		Offset: 5,
 	}

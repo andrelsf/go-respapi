@@ -1,4 +1,4 @@
-package db
+package tests
 
 import (
 	"database/sql"
@@ -6,6 +6,7 @@ import (
 	"os"
 	"testing"
 
+	db "github.com/andrelsf/go-restapi/db/sqlc"
 	_ "github.com/lib/pq"
 )
 
@@ -14,7 +15,7 @@ const (
 	dbSource = "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable"
 )
 
-var testQueries *Queries
+var testQueries *db.Queries
 
 func TestMain(m *testing.M) {
 	conn, err := sql.Open(dbDriver, dbSource)
@@ -22,7 +23,7 @@ func TestMain(m *testing.M) {
 		log.Fatal("Cannot connect to db:", err)
 	}
 
-	testQueries = New(conn)
+	testQueries = db.New(conn)
 
 	os.Exit(m.Run())
 }
