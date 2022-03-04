@@ -41,10 +41,16 @@ go mod init github.com/andrelsf/go-restapi
 go mod tidy
 ```
 
+```shell
+go get github.com/lib/pq
+go get github.com/stretchr/testify
+```
+
 ## References
 
 - [Simple Bank](https://github.com/techschool/simplebank)
 - [Migrate](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate)
 - [SQLC](https://sqlc.dev/)
 - [Github SQLC](https://github.com/kyleconroy/sqlc)
-- 
+- [Go lib PQ](https://github.com/lib/pq)
+- [Testify](https://github.com/stretchr/testify)
