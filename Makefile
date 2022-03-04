@@ -11,6 +11,9 @@ sqlc:
 	sqlc generate
 
 test:
-	go test -v -cover ./...
+	go test -v -cover ./db/sqlc/tests/ | sed ''/PASS/s//$(printf "\033[32mPASS\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/''
+
+cleancache:
+	go clean -testcache
 
 .PHONY: postgres migrateup migratedown test
