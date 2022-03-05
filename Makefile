@@ -16,4 +16,7 @@ test:
 cleancache:
 	go clean -testcache
 
-.PHONY: postgres migrateup migratedown test
+server:
+	go run main.go
+
+.PHONY: postgres migrateup migratedown test cleancache server
