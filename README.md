@@ -46,6 +46,11 @@ go get github.com/lib/pq
 go get github.com/stretchr/testify
 ```
 
+Tests with HTTPie
+```shell
+http --json POST :8080/accounts < payloads/postAccounts.json
+```
+
 ## References
 
 - [Simple Bank](https://github.com/techschool/simplebank)
@@ -54,3 +59,4 @@ go get github.com/stretchr/testify
 - [Github SQLC](https://github.com/kyleconroy/sqlc)
 - [Go lib PQ](https://github.com/lib/pq)
 - [Testify](https://github.com/stretchr/testify)
+- [Golang GIN](https://github.com/gin-gonic/gin)
