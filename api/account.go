@@ -50,3 +50,24 @@ func (server *Server) getAccount(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusOK, account)
 }
+
+func (server *Server) getAllAccounts(ctx *gin.Context) {
+	var req getAllAccountsRequest
+	if err := ctx.ShouldBindQuery(&req); err != nil {
+		ctx.JSON(http.StatusUnprocessableEntity, errorResponse(http.StatusUnprocessableEntity, err))
+		return
+	}
+
+	params := db.ListAccountsParams{
+		Limit:  req.Limit,
+		Offset: (req.Offset - 1) * req.Limit,
+	}
+
+	accounts, err := server.store.ListAccounts(ctx, params)
+	if err != nil {
+		ctx.JSON(http.StatusUnprocessableEntity, errorResponse(http.StatusUnprocessableEntity, err))
+		return
+	}
+
+	ctx.JSON(http.StatusPartialContent, accounts)
+}
