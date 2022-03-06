@@ -51,6 +51,12 @@ Tests with HTTPie
 http --json POST :8080/accounts < payloads/postAccounts.json
 ```
 
+## Golang Viper
+
+Install 
+```shell
+go get github.com/spf13/viper
+```
 ## References
 
 - [Simple Bank](https://github.com/techschool/simplebank)
@@ -60,3 +66,4 @@ http --json POST :8080/accounts < payloads/postAccounts.json
 - [Go lib PQ](https://github.com/lib/pq)
 - [Testify](https://github.com/stretchr/testify)
 - [Golang GIN](https://github.com/gin-gonic/gin)
+- [Golang Viper](https://github.com/spf13/viper)
